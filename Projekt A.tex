@@ -1,0 +1,531 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath} 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage[danish]{babel}
+\usepackage{verbatim}
+\usepackage{graphicx}    % For grafik (billederfiler)
+\usepackage[T1]{fontenc} % For at blande \textsc{} med \textbf{}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage{tabularx,colortbl,xcolor}
+\definecolor{KU-red}{RGB}{144,26,30} 
+\setlength{\parindent}{0mm}
+
+\begin{document}
+
+\begin{minipage}[b]{1.0\linewidth} 
+\includegraphics[height=40mm]{KULogo}
+
+\vspace*{-25ex}
+\begin{center}
+    {\Large \bf LinAlgDat} \vspace*{1ex} \\
+    {\large Projekt A} \vspace*{1ex} \\
+    {\large 2014/2015} \vspace*{1ex} \\
+    {\large Emil Slot Arakelian Jensen} \vspace*{1ex}\\
+    {\large sbh280 - Øvelseshold 4} 
+\end{center}
+
+\vspace*{-3pt}
+{\color{KU-red}\hrule}
+\end{minipage}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Opgave 1}
+\subsection{(a)}
+Følgende ligningssystem er givet. 
+\begin{align*}
+2x_1+3x_2-x3&=2 \\
+x_1+x_2+x_3&=1 \\
+4x_1-x_2+ax_3&=4 
+\end{align*} 
+Den tilhørende totalmatrice opskrives. \\
+$$
+\left[\begin{array}{rrr|r}
+2&3&-1&2\\
+1&1&1&1\\
+4&-1&a&4
+\end{array}\right]
+$$ 
+
+Ved at bruge rækkeoperationen $r_1 \leftrightarrow r_2$ fås følgende\\
+$$
+\left[\begin{array}{rrr|r}
+2&3&-1&2\\
+1&1&1&1\\
+4&-1&a&4
+\end{array}\right] 
+\to 
+\left[\begin{array}{rrr|r}
+1&1&1&1\\
+2&3&-1&2\\
+4&-1&a&4
+\end{array}\right]
+$$
+
+Ved at bruge rækkeoperationen $r_2-2r1 \to r2$ fås\\
+$$
+\left[\begin{array}{rrr|r}
+1&1&1&1\\
+2&3&-1&2\\
+4&-1&a&4
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|r}
+1&1&1&1\\
+0&1&-3&0\\
+4&-1&a&4
+\end{array}\right]
+$$
+
+Ved at bruge rækkeoperationen $r_3-4r_1 \to r_3$ får vi\\ 
+$$
+\left[\begin{array}{rrr|r}
+1&1&1&1\\
+0&1&-3&0\\
+4&-1&a&4
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|r}
+1&1&1&1\\
+0&1&-3&0\\
+0&-5&a-4&0
+\end{array}\right]
+$$
+
+Endeligt bruges sidste rækkeoperation $r_3+5r_2 \to r_3$ \\
+$$
+\left[\begin{array}{rrr|r}
+1&1&1&1\\
+0&1&-3&0\\
+0&-5&a-4&0
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|r}
+1&1&1&1\\
+0&1&-3&0\\
+0&0&a-19&0
+\end{array}\right]
+$$
+Herved er totalmatricen blevet omformet til rækkeechelonform.\\
+
+\subsection{(b)}
+\textit{a} sættes til at være lig 19 og matricen bringes nu til reduceret rækkeechelonform for dermed at kunne løse ligningssystemet.\\
+Dette gøres ved rækkeoperation $r_1-r_2$, der giver
+$$
+\left[\begin{array}{rrr|r}
+1&1&1&1\\
+0&1&-3&0\\
+0&0&0&0
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|r}
+1&0&4&1\\
+0&1&-3&0\\
+0&0&0&0
+\end{array}\right]
+$$
+Tallet 0 er nu over og under alle pivotelementer og matricen er dermed på reduceret rækkeechelonform.\\
+Pivotelementerne er på plads $(1,1)$ og $(2,2)$ - altså er $x_3$ en fri variabel, og kaldes \textit{t}\\
+Det giver følgende løsninger til ligningssystemet: \\
+
+\begin{align*}
+x_1&=1-4t\\
+x_2&=3t\\
+x_3&=t
+\end{align*}
+
+\subsection{(c)}
+\textit{a} sættes nu lig 20 og den inverse til koefficientmatricen bestemmes. 
+Først foretages rækkeoperationen $r_1 \leftrightarrow r_2 $ og herefter foretages $r_2-2r_1 \to r_2$, hvilket giver\\
+$$
+\left[\begin{array}{rrr|rrr}
+2&3&-1&1&0&0\\
+1&1&1&0&1&0\\
+4&-1&20&0&0&1\\
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|rrr}
+1&1&1&0&1&0\\
+0&1&-3&1&-2&0\\
+4&-1&20&0&0&1\\
+\end{array}\right]
+$$
+Rækkeoperationen $r_3-4r_1 \to r_3$ giver
+$$
+\left[\begin{array}{rrr|rrr}
+1&1&1&0&1&0\\
+0&1&-3&1&-2&0\\
+4&-1&20&0&0&1\\
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|rrr}
+1&1&1&0&1&0\\
+0&1&-3&1&-2&0\\
+0&-5&16&0&-4&1\\
+\end{array}\right]
+$$
+Rækkeoperationen $r_1-r_2 \to r_1$ giver
+$$
+\left[\begin{array}{rrr|rrr}
+1&1&1&0&1&0\\
+0&1&-3&1&-2&0\\
+0&-5&16&0&-4&1\\
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|rrr}
+1&0&4&-1&3&0\\
+0&1&-3&1&-2&0\\
+0&-5&16&0&-4&1\\
+\end{array}\right]
+$$
+Rækkeoperationen $r_3+5r_2 \to r_3$ giver
+$$
+\left[\begin{array}{rrr|rrr}
+1&0&4&-1&3&0\\
+0&1&-3&1&-2&0\\
+0&-5&16&0&-4&1\\
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|rrr}
+1&0&4&-1&3&0\\
+0&1&-3&1&-2&0\\
+0&0&1&5&-14&1\\
+\end{array}\right]
+$$
+Rækkeoperationen $r_2+3r_3 \to r_2$ giver
+$$
+\left[\begin{array}{rrr|rrr}
+1&0&4&-1&3&0\\
+0&1&-3&1&-2&0\\
+0&0&1&5&-14&1\\
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|rrr}
+1&0&4&-1&3&0\\
+0&1&0&16&-44&3\\
+0&0&1&5&-14&1\\
+\end{array}\right]
+$$
+Sidste rækkeoperation $r_1-4r_3 \to r_1$ giver den inverse
+$$
+\left[\begin{array}{rrr|rrr}
+1&0&4&-1&3&0\\
+0&1&0&16&-44&3\\
+0&0&1&5&-14&1\\
+\end{array}\right]
+\to
+\left[\begin{array}{rrr|rrr}
+1&0&0&-21&59&-4\\
+0&1&0&16&-44&3\\
+0&0&1&5&-14&1\\
+\end{array}\right]
+$$
+Altså er den inverse til koefficientmatricen med 20 på \textit{a's} plads 
+$$
+\left[\begin{array}{rrr}
+-21&59&-4\\
+16&-44&3\\
+5&-14&1
+\end{array}\right]
+$$
+
+\newpage
+\section{Opgave 2}
+En ukendt $3x3$ matrix \textbf{A} kan ved 4 rækkeoperationer omformes til enhedsmatricen - de 4 rækkeoperationer $ero_1...ero_4$ er givet.
+\begin{quote}
+$
+ero_1:-4r_1+r_2 \to r_2 \\
+ero_2:r_2 \leftrightarrow r_3 \\
+ero_3:\tfrac{1}{5}r_3 \to r_3 \\
+ero_4:r_3+r_1 \to r_1
+$
+\end{quote}
+\subsection{(a)}
+For hvert $i=1,2,3,4$ bestemmes den elementære matrix $E_i$, der svarer til rækkeoperation $ero_i$\\
+Altså bruges hver rækkeoperation på enhedsmatricen.
+$$
+\mathbf{E_1}=
+\begin{bmatrix}
+1&0&0\\
+-4&1&0\\
+0&0&1
+\end{bmatrix}
+$$
+$$
+\mathbf{E_2}=
+\begin{bmatrix}
+1&0&0\\
+0&0&1\\
+0&1&0
+\end{bmatrix}\\
+$$
+$$
+\mathbf{E_3}=
+\begin{bmatrix}
+1&0&0\\
+0&1&0\\
+0&1&\tfrac{1}{5}
+\end{bmatrix}\\
+$$
+$$
+\mathbf{E_4}=
+\begin{bmatrix}
+1&0&1\\
+0&1&0\\
+0&0&1
+\end{bmatrix}\\
+$$
+
+\subsection{(b)}
+Matrixproduktet $\mathbf{F=E_4E_3E_2E_1}$ bestemmes.\\
+$$\mathbf{E_4E_3}=
+\begin{bmatrix}
+1&0&1\\
+0&1&0\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}
+1&0&0\\
+0&1&0\\
+0&0&\frac{1}{5}
+\end{bmatrix}
+=
+\begin{bmatrix}
+1&0&\frac{1}{5}\\
+0&1&0\\
+0&0&\frac{1}{5}
+\end{bmatrix}
+$$
+
+\begin{align*}
+\mathbf{E_4E_3E_2}&=
+\begin{bmatrix}
+1&0&\frac{1}{5}\\
+0&1&0\\
+0&0&\frac{1}{5}
+\end{bmatrix}
+\begin{bmatrix}
+1&0&0\\
+0&0&1\\
+0&1&0
+\end{bmatrix}
+=
+\begin{bmatrix}
+1&\frac{1}{5}&0\\
+0&0&1\\
+0&1&0
+\end{bmatrix}
+\\
+\mathbf{F=E_4E_3E_2E1}&=
+\begin{bmatrix}
+1&0&0\\
+0&0&1\\
+0&1&0
+\end{bmatrix}
+\begin{bmatrix}
+1&0&0\\
+-4&1&0\\
+0&0&1
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{1}{5}&\frac{1}{5}&0\\
+0&0&1\\
+\frac{-4}{5}&\frac{1}{5}&0\
+\end{bmatrix}
+\end{align*}
+\\
+$ \mathbf{G=E_1^-1E_2^-1E_3^-1E_4^-1}$, bestemmes nu, ved at foretage den modsvarende rækkeoperation af rækkeoperationerne $ero_i$, på enhedsmatricen og gange disse matricer sammen.
+
+\begin{align*}
+\mathbf{E_1^-1E_2^-1}&=
+\begin{bmatrix}
+1&0&0\\
+4&1&0\\
+0&0&0
+\end{bmatrix}
+\begin{bmatrix}
+1&0&0\\
+0&0&1\\
+0&1&0
+\end{bmatrix}
+=
+\begin{bmatrix}
+1&0&0\\
+4&0&1\\
+0&1&0
+\end{bmatrix}
+\\\\
+\mathbf{E_1^-1E_2^-1E_3^-1}&=
+\begin{bmatrix}
+1&0&0\\
+4&0&1\\
+0&1&0
+\end{bmatrix}
+\begin{bmatrix}
+1&0&0\\
+0&1&0\\
+0&0&5
+\end{bmatrix}
+=
+\begin{bmatrix}
+1&0&0\\
+4&0&5\\
+0&1&0
+\end{bmatrix}
+\\\\
+\mathbf{G=E_1^-1E_2^-1E_3^-1E_4^-1}&=
+\begin{bmatrix}
+1&0&0\\
+4&0&5\\
+0&1&0
+\end{bmatrix}
+\begin{bmatrix}
+1&0&-1\\
+0&1&0\\
+0&0&1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1&0&-1\\
+4&0&1\\
+0&1&0
+\end{bmatrix}
+\end{align*}
+
+\subsection{(c)}
+Det gælder, at $\mathbf{F}=\mathbf{A^-1}=\mathbf{G^-1}$, og dermed må det også gælde, \\
+at $$\mathbf{A=G}
+=\begin{bmatrix}
+1&0&-1\\
+4&0&1\\
+0&1&0
+\end{bmatrix}
+$$
+\section{Opgave 3}
+\begin{center}
+\includegraphics[scale=0.4]{grafproja.pdf}
+\end{center}
+\subsection{(a)}
+Nabomatricen \textbf{N} for ovenstående orienterede graf bestemmes.\\
+Findes der en kant fra knude i til knude j, skrives 1 på plads $(i,j)$ ellers 0.
+$$
+\mathbf{N}=
+\begin{bmatrix}
+0&1&1&0&1\\
+1&0&0&0&1\\
+0&1&0&1&0\\
+0&0&1&0&0\\
+1&0&0&0&0
+\end{bmatrix}
+$$
+Ud fra den angivne matrix $\mathbf{N}^6$ aflæses det, at der findes 12 veje fra knude 2 til sig selv med præcis længden 6. Dette aflæses direkte fra punktet $(2,2)$.
+\subsection{(b)} Linkmatricen \textbf{A} for den ovenstående graf bestemmes.
+Et link rangeres højere jo flere andre vigtige links der linker til dét. For at alle websider har lige stor inflydelse på de andre sider, gælder det, at hvis side j indeholder et link til side k og $N_j$ links i alt, øges scoren for side k med ${x_j}/{N_j}$\\
+Derfor bestemmes $N_j$ først for alle links.
+\begin{center}
+$N_1=3$, $N_2=2$, $N_3=2$, $N_4=1$, $N_5=1$
+\end{center}
+Dette, sammen med nabomatricen giver følgende ligningssystem:
+\begin{align*}
+x_1&=\frac{1}{2}x_2+x_5 \\
+x_2&=\frac{1}{3}x_1+\frac{1}{2}x_2\\
+x_3&=\frac{1}{3}x_1+x_4\\
+x_4&=\frac{1}{2}x_3\\
+x_5&=\frac{1}{3}x_1+\frac{1}{2}x_2
+\end{align*}
+og linkmatricen \textbf{A} givet ved
+$$
+\mathbf{A}=
+\begin{bmatrix}
+0&\frac{1}{2}&0&0&1\\
+\frac{1}{3}&0&\frac{1}{2}&0&0\\
+\frac{1}{3}&0&0&1&0\\
+0&0&\frac{1}{2}&0&0\\
+\frac{1}{3}&\frac{1}{2}&0&0&0
+\end{bmatrix}
+$$
+\subsection{(c)} Det ligningssystem vi nu har kan skrives på formen $\mathbf{Ax=x}$, hvor
+$$
+\mathbf{A}=
+\begin{bmatrix}
+0&\frac{1}{2}&0&0&1\\
+\frac{1}{3}&0&\frac{1}{2}&0&0\\
+\frac{1}{3}&0&0&1&0\\
+0&0&\frac{1}{2}&0&0\\
+\frac{1}{3}&\frac{1}{2}&0&0&0
+\end{bmatrix} \hspace*{5ex} og \hspace*{5ex}
+\mathbf{x}=
+\begin{bmatrix}
+x_1\\
+x_2\\
+x_3\\
+x_4\\
+x_5
+\end{bmatrix}
+$$
+Dette system kan omskrives til $\mathbf{Ax-x=0}$ og den tilsvarende totalmatrix opskrives.
+
+$$
+\left[\begin{array}{rrrrr|r}
+-1&\frac{1}{2}&0&0&1&0\\
+\frac{1}{3}&-1&\frac{1}{2}&0&0&0\\
+\frac{1}{3}&0&-1&1&0&0\\
+0&0&\frac{1}{2}&-1&0&0\\
+\frac{1}{3}&\frac{1}{2}&0&0&-1&0
+\end{array}\right]
+$$\\
+
+Dette ligningssystem kan løses ved at lave rækkeoperationer på totalmatricen til den er på reduceret echelon-form. Herfra kan løsningen aflæses på samme måde som i opgave 1 (b). Løsningen kan let omskrives til en vektor der opfylder ligningen $\mathbf{Ax=x}$, hvor der i dette tilfælde højest sandsynligt er en fri variabel \textit{t}, som alle de andre løsninger afhænger af. \\
+Når det er skrevet op sådan, er det let at foretage en rangordning af siderne i webbet - den side der har den største konstant der ganges med den fri variabel \textit{t}, er den vigtigeste side i webbet - den der har den mindste, er den mindst vigtige. \\\\
+(Som jeg fortalte dig til sidste øvelsestime, havde jeg problemer med at få den reduceret helt - selv efter et hav er rækkeoperationer, mangler der stadig en masse, og mange af tallene er nu på brøkform og er besværlige at regne med. Det ville tage meget lang tid at skrive alle rækkeoperationerne ind i LaTeX nu, og da jeg ikke er kommet til nogen konkret løsning, har jeg valgt at udelade disse, for nu...
+
+\section{4}
+Alle disse opgaver er udført i java ved brug af den vedlagte klassedefinition "Matrix". Så jeg vil blot kommentere kort på mine løsninger i denne pdf, og lade noget af koden og i den vedhæftede javafil, "MatrixUsage", tale for sig selv.
+Når jeg skriver matricerne op her vil jeg dog undlade at skrive ".0" som det egentlig udskrives i java, da der regnes med reelle tal.
+
+\subsection{(a)}
+$$
+\mathbf{A}=
+\begin{bmatrix}
+1&4&7\\
+2&5&8\\
+3&6&9
+\end{bmatrix} \hspace*{5ex} og \hspace*{5ex}
+\mathbf{B}=
+\begin{bmatrix}
+-9&6&3\\
+8&-5&2\\
+-7&4&1
+\end{bmatrix}
+$$
+Matricerne \textbf{A} og \textbf{B} defineres i java, ved at bruge konstruktoren til at lave 2 nye matricer under hver sit navn. For at indsætte alle de korrekte værdier i de 2 tomme matricer, bruges metoden "set" fra Matrix klassen. Metoden tager 3 parametre ind, (\textit{i}, \textit{j}, \textit{x}), hvor \textit{i} angiver hvilken række der refereres til, \textit{j} angiver kolonnen og \textit{x} angiver hvilket tal der skal indsættes på plads \textit{(i,j)}.\\
+Når dette er gjort, kan matricen udskrives, enten ved at bruge System.out.println eller bruge metoden "println" fra Matrix klassen. 
+
+\subsection{(b)}
+For at ændre elementen $\mathit{a}_{13}$ til -4, bruges metoden "set" igen, ved at skrive $A.set(1,3,-4)$\\
+Når programmet køres, ser \textbf{A} nu sådan ud:\\
+$$
+\mathbf{A}=
+\begin{bmatrix}
+1&4&-4\\
+2&5&8\\
+3&6&9
+\end{bmatrix}
+$$
+\subsection{(c)}
+Metoden "add" kan bruges til at addere et tal med alle elementer i en matrice, og få en ny matrice ud. En anden ting den kan bruges til, som den netop bruges til i denne opgave, er at addere 2 matricer.\\
+Metoden "mul" kan bruges til at gange alle tal i en matrice med et andet valgfrit tal. I dette tilfælde ganges der med 2.0.\\
+Når programmet køres, er outputtet 
+$$
+2\mathbf{A+B}=
+\begin{bmatrix}
+-7&14&-11\\
+12&5&18\\
+-1&16&17
+\end{bmatrix}
+$$
+\end{document}
