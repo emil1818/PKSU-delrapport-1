@@ -8,6 +8,7 @@
 \definecolor{KU-red}{RGB}{144,26,30} 
 \setlength{\parindent}{0mm}
 \thispagestyle{empty}
+\usepackage[superscript, biblabel]{cite}
 
 \begin{document}
 
@@ -52,7 +53,7 @@
 
 
 \newpage
-\section{Problem definition}
+\section{Problem statement}
 \textbf{How many people are in the office?}\\
 \textit{Use iBeacons to determine the amount of people currently in the office. Aggregate the data to apply machine learning and data visualizations.
 Using iBeacons we would like to make an app that registers whenever the user enters or leaves our office. We would like to aggregate that data to use for cool data visualizations and applying machine learning to the data to obtain knowledge about the general usage patterns of the office. This could e.g. be used to adjust the heating, automatically lock the doors and turn off the lights when the last person leaves, predict when we need to order more or less lunch, or simply to check whether a certain person is currently at the office.} \cite{website}\\
@@ -71,16 +72,15 @@ A third phase, which we will not be working on, would be to apply machine learni
 In summation, our primary target is to deliver an Android app that is capable of registering data with the help of iBeacons. If there is enough time, our secondary target will be to develop the backend for this system. In both cases our deadline for delivery of the product has been set to June 8th 2015.\\
 
 
+\section{Initial Software Project Management Plan and Initial software architecture}
 
+As of now, we are only in the initial phase of designing our app, therefore the current management plans and schedules are rough drafts. The rough draft for our work schedule and the product description, can be seen in the section "Problem statement" above.
 
+In terms of responsibilities, we do not plan to appoint a project manager. We are a group of four people and are confident, that we do not need to appoint someone to overwatch the remaining three. We will however, once later into the development, create detailed schedules and individual deadlines for smaller assignments, which we will use to keep track of our progress, instead of having a single person as a manager. This approach, is not quite the same as mentioned in our textbook \cite{OOSE}. However, given the size of our team, we do not see, how setting up a textbook SCRUM team will have any major benefits.
 
+We do not plan to have any expenses tied to the development of our project. Shape A/S will provide us with iBeacons, nor does the development software pose any costs.
 
-
-
-
-
-\section{Initial Software Project Management Plan}
-
+As of this moment, we do not know exactly how we will design the system. We have not yet seen the iBeacons, nor do we know how exactly they work. Therefore it is hard to know how to build a system around them. We have made a rough draft, of some of the aspects of the project, that we know that needs to be developed. But it is still just general concepts, and not detailed descriptions.
 
 
 
@@ -93,7 +93,28 @@ In summation, our primary target is to deliver an Android app that is capable of
 
 \newpage
 \section{Exercises}
-\subsection*{1-8.}
+\subsection{1-6.}
+\textbf{Specify which of these statements are functional requirements and which are
+nonfunctional requirements}
+
+Functional requirements:\\
+- "The TicketDistributor must enable a traveler to buy weekly passes."\\
+- "The TicketDistributor must always be available."\\
+- "The TicketDistributor must provide a phone number to call when it fails."\\
+
+Nonfunctional requirements:\\
+- "The TicketDistributor must be written in Java."\\
+- "The TicketDistributor must be easy to use."\\
+
+
+
+
+
+
+
+
+
+\subsection{1-8.}
 \textbf{In the following description, explain when the term account is used as an application domain concept and when as a solution domain concept:}\\
 "...managing bank accounts for mobile costumers." - It is used as an application domain concept, saying what it is supposed to do. 
 "...provide access to the accounts when the..." - It is used the same way as before. 
@@ -110,7 +131,7 @@ In summation, our primary target is to deliver an Android app that is capable of
 
 
 
-\subsection*{2-6, 2-7, 2-9.}
+\subsection{2-6, 2-7, 2-9.}
 \textbf{Draw a class diagram representing a book. Add multiplicity to the class diagram you produced in Exercise 2-6. Extend the class diagram to include attributes.}\\
 
 \includegraphics[height=50mm]{2-6}\\
@@ -124,7 +145,7 @@ In summation, our primary target is to deliver an Android app that is capable of
 
 
 \newpage
-\subsection*{2-10.}
+\subsection{2-10.}
 \textbf{Add an abstract class and an inheritance relationship to factor out these two attributes into the abstract class}\\
 
 \includegraphics[height=70mm]{2-10}\\
@@ -140,14 +161,14 @@ In summation, our primary target is to deliver an Android app that is capable of
 
 
 \newpage
-\subsection*{5-3.}
+\subsection{5-3.}
 \textbf{Arrange the objects listed in Exercises 5-1 and 5-2 horizontally on a sequence diagram.}\\
 \includegraphics[scale=0.5]{5-3}\\
 \textbf{Fig 4:} Sequence diagram for exercise 5-3
 
 
 \newpage
-\subsection*{7-1}
+\subsection{7-1}
 \textbf{Draw a UML deployment diagram representing the hardware/software mapping.}\\
 
 \includegraphics[scale=0.7]{7-1}\\
@@ -165,6 +186,10 @@ In summation, our primary target is to deliver an Android app that is capable of
 
 \bibitem{website}
   www.shape.dk/projects
+  
+\bibitem{OOSE}
+Bruegge \& Dutoit (2010), Object-Oriented Software Engineering - using UML, Patterns and
+Java, Third edition, Pearson 2010. Page 611 
 
 \end{thebibliography}
 
